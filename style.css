@@ -56,6 +56,11 @@ input {
 }
 
 button {
+  background: none;
+  font-size: inherit;
+  color: #fff;
+  border: none;
+  cursor: pointer;
 }
 
 input:focus {
@@ -105,6 +110,7 @@ input:focus {
   justify-content: center;
 
   flex-direction: column;
+  padding-bottom: 12.5vh;
 }
 
 .is-hidden {
@@ -164,7 +170,6 @@ input:focus {
   background: #aa00ff;
   border: 2px solid rgb(143, 1, 214);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
-  cursor: pointer;
   transition: background 0.1s ease;
 }
 
@@ -173,16 +178,21 @@ input:focus {
   border: 2px solid rgb(120, 1, 180);
 }
 
-#result_container {
+#result_page {
   display: flex;
-  height: 100vh;
-  flex-direction: column;
   justify-content: center;
+
+  flex-direction: column;
+  padding-bottom: 12.5vh;
+}
+
+#result_container {
 }
 
 .result_temp_text {
   font-size: 6rem;
   line-height: 5rem;
+  margin-top: 0.5rem;
   margin-bottom: 2rem;
   font-weight: 200;
 }
@@ -192,9 +202,15 @@ input:focus {
   width: 300px;
 }
 
-#temp_and_text {
+#temp_and_description {
   display: flex;
   align-items: center;
+}
+
+#temp_icon_container {
+  height: 80px;
+  width: 80px;
+  margin-right: 0.5rem;
 }
 
 .weather_info {
@@ -205,18 +221,24 @@ input:focus {
 .result_city_name {
   font-size: 1.25rem;
   margin-bottom: 0.25rem;
+  margin-left: 0.25rem;
 }
 
 .result_date {
   font-size: 1.25rem;
+  margin-left: 0.25rem;
 }
 
 #search_again_btn {
-  position: relative;
+  position: absolute;
+  top: 2rem;
+  display: flex;
+  align-items: center;
   font-size: 1rem;
   color: white;
-  background: none;
-  border: none;
+  height: 2rem;
+  margin-left: 0.25rem;
+
   cursor: pointer;
   transition: background 0.1s ease;
 }
@@ -225,21 +247,9 @@ input:focus {
   color: #aa00ff;
 }
 
-#back_arrow {
-  position: absolute;
-  left: 1rem;
-  font-size: 2rem;
-}
-
-#search_again_text {
-  position: absolute;
-  top: 0.81rem;
-  left: 2rem;
-}
-
-#temp_icon_container {
-  height: 80px;
-  width: 80px;
+.back_arrow {
+  font-size: 1.25rem;
+  margin-right: 0.5rem;
 }
 
 img {
@@ -361,6 +371,6 @@ img {
   }
 
   #search_again_btn {
-    margin-left: 1rem;
+    margin-left: 2.5rem;
   }
 }
