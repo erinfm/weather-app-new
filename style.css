@@ -2,6 +2,7 @@
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
+  font-family: inherit;
 }
 
 body {
@@ -27,6 +28,7 @@ h1 {
 
 section {
   height: 100%;
+
   color: #fff;
   padding: 20px;
   font-weight: 300;
@@ -38,51 +40,55 @@ section {
     } */
 }
 
-button,
-input,
-datalist {
-  font-family: "Muli", Arial, Helvetica, sans-serif;
-  font-size: 1rem;
+.content {
+  max-width: 700px;
 }
 
 input {
+  font-size: 1.25rem;
+
   padding: 0.75rem;
   margin: 1rem 0;
   border-radius: 10px;
   border: 2px solid #ddd;
+  height: 3.5rem;
   width: 100%;
 }
 
-select {
-  width: 100%;
-  padding: 0.5rem;
-  background: #eee;
+button {
 }
 
 input:focus {
   box-shadow: 0 0 3px 2px #6200ea;
 }
 
+.overlay {
+  display: none;
+  position: fixed; /* Positioning and size */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4); /* color */
+}
+
 .modal {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  overflow: hidden;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 2rem;
   width: 300px;
   min-height: 80px;
-  max-height: 200px;
+
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
-  border: 3px solid #aa00ff;
+  border: 2px solid #aa00ff;
 }
 
-.modal.closed {
-  display: none;
+.show {
+  display: block;
 }
 
 .darken {
@@ -106,53 +112,54 @@ input:focus {
 }
 
 #city_list {
-  display: flex;
-  flex-direction: column;
-
-  position: relative;
   font-size: 1.25rem;
   cursor: pointer;
-  text-transform: capitalize;
-  width: 100%;
   overflow-wrap: break-word;
 }
 
-.locationOption {
-  padding: 0.5rem;
+.city_option {
+  display: block;
+  padding: 1rem;
+  /* height: 100%; */
   color: #555;
   transition: color 0.1s ease;
 }
 
-.locationOption {
-  padding: 0.5rem;
-}
-
-.locationOption:hover {
-  color: #222;
+.city_option:hover {
+  background-color: #aa00ff;
+  color: #fff;
 }
 
 #close_modal_btn {
   position: absolute;
-  right: 0;
-  top: 0;
+  right: 8px;
+  top: 9px;
   cursor: pointer;
-  margin: 0.5rem;
   height: 2rem;
-  width: 2rem;
+  width: 1.75rem;
   font-size: 1.5rem;
-  color: #555;
+  font-weight: lighter;
+  color: #aa00ff;
   transition: color 0.1s ease;
 }
 
-#close_modal_btn:hover {
+/* #close_modal_btn:hover {
   color: #222;
+} */
+
+#modal_instruction {
+  display: block;
+  padding: 1rem;
+  color: #555;
 }
 
 #weather_btn {
   border-radius: 10px;
   padding: 0.75rem;
+  height: 3.5rem;
   width: 100%;
   font-size: 1.25rem;
+  font-weight: 600;
   color: white;
   background: #aa00ff;
   border: 2px solid rgb(143, 1, 214);
@@ -298,9 +305,9 @@ img {
 } */
 
 @media only screen and (min-width: 650px) {
-  html {
+  /* html {
     font-size: 1.25rem;
-  }
+  } */
 
   #input_page {
     align-items: flex-start;
@@ -308,7 +315,7 @@ img {
 
   #input_field {
     width: 400px;
-    height: 70%;
+
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     border: 2px solid rgb(143, 1, 214);
@@ -322,13 +329,12 @@ img {
   #weather_btn {
     margin: 0;
     margin: 1rem 0;
-    height: 70%;
+
     width: 200px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    font-size: 1rem;
+    font-size: 1.25rem;
     font-weight: bold;
-    letter-spacing: 0.75px;
   }
 
   .desktop-alongside {
