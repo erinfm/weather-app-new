@@ -130,7 +130,7 @@ input:focus {
   color: #fff;
 }
 
-#close_modal_btn {
+.close_modal_btn {
   position: absolute;
   right: 8px;
   top: 9px;
@@ -143,7 +143,7 @@ input:focus {
   transition: color 0.1s ease;
 }
 
-/* #close_modal_btn:hover {
+/* .close_modal_btn:hover {
   color: #222;
 } */
 
