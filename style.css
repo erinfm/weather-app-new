@@ -1,0 +1,349 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  font-family: "Muli", "Helvetica", "Arial", sans-serif;
+
+  height: 100%;
+}
+
+body:not(.keyboard-nav) button:focus,
+body:not(.keyboard-nav) input:focus,
+body:not(.keyboard-nav) select:focus,
+body:not(.keyboard-nav) textarea:focus {
+  outline: none;
+}
+
+html {
+  height: 100%;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+section {
+  height: 100%;
+  color: #fff;
+  padding: 20px;
+  font-weight: 300;
+  /* // Extra padding at bottom to account for address bar
+  padding: 20px 20px 20vh 20px; */
+  /* @supports (-webkit-appearance:none) {
+    .os-android & {
+      min-height: calc(100vh - 56px);
+    } */
+}
+
+button,
+input,
+datalist {
+  font-family: "Muli", Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+}
+
+input {
+  padding: 0.75rem;
+  margin: 1rem 0;
+  border-radius: 10px;
+  border: 2px solid #ddd;
+  width: 100%;
+}
+
+select {
+  width: 100%;
+  padding: 0.5rem;
+  background: #eee;
+}
+
+input:focus {
+  box-shadow: 0 0 3px 2px #6200ea;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2rem;
+  width: 300px;
+  min-height: 80px;
+  max-height: 200px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  border: 3px solid #aa00ff;
+}
+
+.modal.closed {
+  display: none;
+}
+
+.darken {
+  filter: brightness(40%);
+}
+
+/* disable pointer events on background when modal showing */
+.unselectable {
+  pointer-events: none;
+}
+
+#input_page {
+  display: flex;
+  justify-content: center;
+
+  flex-direction: column;
+}
+
+.is-hidden {
+  display: none !important ;
+}
+
+#city_list {
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+  font-size: 1.25rem;
+  cursor: pointer;
+  text-transform: capitalize;
+  width: 100%;
+  overflow-wrap: break-word;
+}
+
+.locationOption {
+  padding: 0.5rem;
+  color: #555;
+  transition: color 0.1s ease;
+}
+
+.locationOption {
+  padding: 0.5rem;
+}
+
+.locationOption:hover {
+  color: #222;
+}
+
+#close_modal_btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  margin: 0.5rem;
+  height: 2rem;
+  width: 2rem;
+  font-size: 1.5rem;
+  color: #555;
+  transition: color 0.1s ease;
+}
+
+#close_modal_btn:hover {
+  color: #222;
+}
+
+#weather_btn {
+  border-radius: 10px;
+  padding: 0.75rem;
+  width: 100%;
+  font-size: 1.25rem;
+  color: white;
+  background: #aa00ff;
+  border: 2px solid rgb(143, 1, 214);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: background 0.1s ease;
+}
+
+#weather_btn:hover {
+  background: rgb(154, 0, 231);
+  border: 2px solid rgb(120, 1, 180);
+}
+
+#result_container {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.result_temp_text {
+  font-size: 6rem;
+  line-height: 5rem;
+  margin-bottom: 2rem;
+  font-weight: 200;
+}
+
+#weather_text_container {
+  margin-left: 0.25rem;
+  width: 300px;
+}
+
+#temp_and_text {
+  display: flex;
+  align-items: center;
+}
+
+.weather_info {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+}
+
+.result_city_name {
+  font-size: 1rem;
+}
+
+.result_date {
+  font-size: 1rem;
+}
+
+#search_again_btn {
+  position: relative;
+  font-size: 1rem;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.1s ease;
+}
+
+#search_again_btn:hover {
+  color: #aa00ff;
+}
+
+#back_arrow {
+  position: absolute;
+  left: 1rem;
+  font-size: 2rem;
+}
+
+#search_again_text {
+  position: absolute;
+  top: 0.81rem;
+  left: 2rem;
+}
+
+#temp_icon_container {
+  height: 80px;
+  width: 80px;
+}
+
+img {
+  filter: brightness(0) invert(1);
+  height: 80px;
+  width: 80px;
+}
+
+.has-background-default {
+  background: linear-gradient(
+    rgb(33, 6, 68),
+    rgb(52, 15, 100),
+    90%,
+    rgb(170, 0, 255)
+  );
+}
+
+.has-background-day-cool {
+  background: linear-gradient(rgb(33, 6, 68), rgb(52, 15, 100), 90%, #2962ff);
+}
+
+.has-background-day-warm {
+  background: linear-gradient(rgb(33, 6, 68), rgb(52, 15, 100), 90%, #ff6d00);
+}
+
+.has-background-snow-mist {
+  background: linear-gradient(rgb(33, 6, 68), rgb(52, 15, 100), 90%, #c51162);
+}
+
+.has-background-dark {
+  background: linear-gradient(rgb(33, 6, 68), rgb(52, 15, 100), 90%, #304ffe);
+}
+
+/* Backgrounds
+
+.has-background-default {
+  background: 
+  linear-gradient(rgb(33, 6, 68), rgb(52, 15, 100) , 90%, rgb(170, 0, 255) );
+
+}
+
+.has-background-day-cool {
+  background: 
+  radial-gradient(circle 80vw at top right, rgb(255, 240, 175), rgba(255, 246, 208, 0.5), rgba(255, 253, 245, 0.2), transparent),
+  linear-gradient(rgba(100, 195, 250, 0.8), rgba(18, 57, 182, 0.8));
+}
+
+.has-background-day-warm {
+  background: 
+  radial-gradient(100vw 60vh at top, rgba(161, 16, 0, 0.4),   rgba(187, 30, 2, 0.3), transparent),
+  linear-gradient(rgba(194, 21, 0, 0.8), rgba(255, 166, 0, 0.8));
+}
+
+.has-background-snow-mist {
+  background: 
+  radial-gradient(100vw 40vh at bottom, rgba(253, 83, 10, 0.6),   rgba(240, 140, 98, 0.5), transparent),
+  linear-gradient(rgba(142, 68, 238, 0.8), rgba(184, 86, 236, 0.8), rgba(240, 140, 98, 0.8));
+}
+
+.has-background-dark {
+  background: 
+  radial-gradient(100vw 60vh at top, rgba(15, 1, 32, 0.4),   rgba(45, 13, 87, 0.4), transparent),
+  linear-gradient(rgba(0, 4, 40, 0.9), rgba(0, 78, 144, 0.9),);
+} */
+
+@media only screen and (min-width: 650px) {
+  html {
+    font-size: 1.25rem;
+  }
+
+  #input_page {
+    align-items: flex-start;
+  }
+
+  #input_field {
+    width: 400px;
+    height: 70%;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border: 2px solid rgb(143, 1, 214);
+    border-right: none;
+  }
+
+  input:focus {
+    box-shadow: none;
+  }
+
+  #weather_btn {
+    margin: 0;
+    margin: 1rem 0;
+    height: 70%;
+    width: 200px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 0.75px;
+  }
+
+  .desktop-alongside {
+    display: flex;
+  }
+
+  #input_page {
+    padding-left: 2rem;
+  }
+
+  #result_container {
+    margin-left: 2rem;
+  }
+
+  #search_again_btn {
+    margin-left: 1rem;
+  }
+}
