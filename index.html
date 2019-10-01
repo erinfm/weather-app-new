@@ -1,70 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Current Weather</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Muli:200,300,600"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="config.js"></script>
+    <script defer src="main.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Weather</title>
-  <link href="https://fonts.googleapis.com/css?family=Muli:200,300,600" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script defer src="config.js"></script>
-  <script defer src="main.js"></script>
-</head>
+  <body>
+    <section id="input-page" class="section has-background-default">
+      <div class="content">
+        <h1>How's the weather today?</h1>
 
-<body>
-  <section id="input_page" class="section has-background-default">
-    <div class="content">
-    <h1 id="welcome_header">How's the weather today?</h1>
+        <div class="desktop-alongside">
+          <input
+            id="input-field"
+            type="text"
+            placeholder="Weather in..."
+            autofocus="autofocus"
+          />
 
-    <div class="desktop-alongside">
-      <input id="input_field" name="city_input" type="text" placeholder="Weather in..." autofocus="autofocus">
+          <button id="weather-btn">Get Weather</button>
+        </div>
 
-      <button id="weather_btn">Get Weather</button>
-    </div>
-    <!--
-      list="datalist" -->
-
-    <!-- <datalist id="datalist"><select id="datalistSelect"></select></datalist> -->
-
-    <div id="overlay" class="overlay">
-        <div id="modal" class="modal">
-          <span class="close_modal_btn">✖</span>
-          <span id="modal_instruction">Choose a city: </span>
-          <div id="city_list"></div>
+        <div id="overlay">
+          <div class="modal">
+            <span class="close-modal-btn">✖</span>
+            <span class="modal-instruction">Choose a city: </span>
+            <div id="city-list"></div>
+          </div>
         </div>
       </div>
-    </div>
- 
-  </section>
+    </section>
 
-  <section id="result_page" class="section is-hidden has-background-day-cool">
-    <div class="content">
-      <button id="search_again_btn"> 
-        <span class="back_arrow">🡐</span>
-        Search Again
-      </button>
-   
-    <div id="result_container">
+    <section id="result-page" class="section is-hidden has-background-day-cool">
+      <div class="content">
+        <button id="search-again-btn">
+          <span class="back-arrow">🡐</span>
+          Search Again
+        </button>
 
-      <!-- <div id="tempAndText">
-        <div id="tempIconContainer">
-        </div>
-        <div id="weatherTextContainer"></div>
+        <div id="result-container"></div>
       </div>
-      <div id="tempContainer"></div>
-      <div id="cityDateContainer"> -->
-
-      </div>
-
-
-    </div>
-  </div>
-
- 
-  </section>
-
-
-</body>
-
+    </section>
+  </body>
 </html>

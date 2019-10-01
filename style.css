@@ -7,15 +7,7 @@
 
 body {
   font-family: "Muli", "Helvetica", "Arial", sans-serif;
-
   height: 100%;
-}
-
-body:not(.keyboard-nav) button:focus,
-body:not(.keyboard-nav) input:focus,
-body:not(.keyboard-nav) select:focus,
-body:not(.keyboard-nav) textarea:focus {
-  outline: none;
 }
 
 html {
@@ -28,25 +20,22 @@ h1 {
 
 section {
   height: 100%;
-
   color: #fff;
   padding: 20px;
   font-weight: 300;
-  /* // Extra padding at bottom to account for address bar
-  padding: 20px 20px 20vh 20px; */
-  /* @supports (-webkit-appearance:none) {
-    .os-android & {
-      min-height: calc(100vh - 56px);
-    } */
 }
 
 .content {
   max-width: 700px;
 }
 
+#input-page.is-hidden,
+#result-page.is-hidden {
+  display: none;
+}
+
 input {
   font-size: 1.25rem;
-
   padding: 0.75rem;
   margin: 1rem 0;
   border-radius: 10px;
@@ -57,8 +46,6 @@ input {
 
 button {
   background: none;
-  font-size: inherit;
-  color: #fff;
   border: none;
   cursor: pointer;
 }
@@ -67,7 +54,7 @@ input:focus {
   box-shadow: 0 0 3px 2px #6200ea;
 }
 
-.overlay {
+#overlay {
   display: none;
   position: fixed; /* Positioning and size */
   top: 0;
@@ -77,35 +64,29 @@ input:focus {
   background-color: rgba(0, 0, 0, 0.4); /* color */
 }
 
+#overlay.show {
+  display: block;
+}
+
 .modal {
   overflow: hidden;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 300px;
+  width: 280px;
   min-height: 80px;
 
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
   border: 2px solid #aa00ff;
+
+  color: #555;
+  transition: color 0.1s ease;
 }
 
-.show {
-  display: block;
-}
-
-.darken {
-  filter: brightness(40%);
-}
-
-/* disable pointer events on background when modal showing */
-.unselectable {
-  pointer-events: none;
-}
-
-#input_page {
+#input-page {
   display: flex;
   justify-content: center;
 
@@ -113,30 +94,22 @@ input:focus {
   padding-bottom: 12.5vh;
 }
 
-.is-hidden {
-  display: none !important ;
-}
-
-#city_list {
-  font-size: 1.25rem;
+#city-list {
   cursor: pointer;
   overflow-wrap: break-word;
 }
 
-.city_option {
+.city-option {
   display: block;
   padding: 1rem;
-  /* height: 100%; */
-  color: #555;
-  transition: color 0.1s ease;
 }
 
-.city_option:hover {
+.city-option:hover {
   background-color: #aa00ff;
   color: #fff;
 }
 
-.close_modal_btn {
+.close-modal-btn {
   position: absolute;
   right: 8px;
   top: 9px;
@@ -149,36 +122,35 @@ input:focus {
   transition: color 0.1s ease;
 }
 
-/* .close_modal_btn:hover {
-  color: #222;
-} */
-
-#modal_instruction {
+.modal-instruction {
   display: block;
   padding: 1rem;
   color: #555;
 }
 
-#weather_btn {
+#weather-btn {
   border-radius: 10px;
   padding: 0.75rem;
+
   height: 3.5rem;
   width: 100%;
+
   font-size: 1.25rem;
   font-weight: 600;
-  color: white;
+
+  color: #fff;
   background: #aa00ff;
   border: 2px solid rgb(143, 1, 214);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
   transition: background 0.1s ease;
 }
 
-#weather_btn:hover {
+#weather-btn:hover {
   background: rgb(154, 0, 231);
   border: 2px solid rgb(120, 1, 180);
 }
 
-#result_page {
+#result-page {
   display: flex;
   justify-content: center;
 
@@ -186,10 +158,7 @@ input:focus {
   padding-bottom: 12.5vh;
 }
 
-#result_container {
-}
-
-.result_temp_text {
+.temperature {
   font-size: 6rem;
   line-height: 5rem;
   margin-top: 0.5rem;
@@ -197,39 +166,34 @@ input:focus {
   font-weight: 200;
 }
 
-#weather_text_container {
-  margin-left: 0.25rem;
-  width: 300px;
-}
-
-#temp_and_description {
+.temp-and-description {
   display: flex;
   align-items: center;
 }
 
-#temp_icon_container {
+.temp-icon-container {
   height: 80px;
   width: 80px;
   margin-right: 0.5rem;
 }
 
-.weather_info {
+.weather-info {
   font-size: 1.5rem;
   text-transform: capitalize;
 }
 
-.result_city_name {
+.city-name {
   font-size: 1.25rem;
   margin-bottom: 0.25rem;
   margin-left: 0.25rem;
 }
 
-.result_date {
+.date {
   font-size: 1.25rem;
   margin-left: 0.25rem;
 }
 
-#search_again_btn {
+#search-again-btn {
   position: absolute;
   top: 2rem;
   display: flex;
@@ -237,17 +201,17 @@ input:focus {
   font-size: 1rem;
   color: white;
   height: 2rem;
-  margin-left: 0.25rem;
+  margin-left: 0.5rem;
 
   cursor: pointer;
   transition: background 0.1s ease;
 }
 
-#search_again_btn:hover {
+#search-again-btn:hover {
   color: #aa00ff;
 }
 
-.back_arrow {
+.back-arrow {
   font-size: 1.25rem;
   margin-right: 0.5rem;
 }
@@ -320,41 +284,40 @@ img {
     font-size: 18px;
   }
 
-  #welcome_header {
-    font-size: 2.5rem;
+  h1 {
+    font-size: 2.25rem;
     padding-left: 0.25rem;
     padding-bottom: 1rem;
   }
 
-  #input_page {
+  #input-page {
     align-items: flex-start;
   }
 
-  #input_field {
+  #input-field {
     width: 400px;
-    font-size: 1.2rem;
+    font-size: 1.1em;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     border: 2px solid rgb(143, 1, 214);
     border-right: none;
+
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   input:focus {
     box-shadow: none;
   }
 
-  .city_option {
-    font-size: 1.2rem;
-  }
-
-  #weather_btn {
+  #weather-btn {
     margin: 0;
     margin: 1rem 0;
 
     width: 200px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: bold;
   }
 
@@ -362,15 +325,11 @@ img {
     display: flex;
   }
 
-  #input_page {
-    padding-left: 2rem;
+  #input-page {
+    padding-left: 4rem;
   }
 
-  #result_container {
-    margin-left: 2rem;
-  }
-
-  #search_again_btn {
-    margin-left: 2.5rem;
+  #result-page {
+    padding-left: 4rem;
   }
 }
