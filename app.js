@@ -92,7 +92,7 @@ const formatResponseData = (data, callback) => {
     .then(result => {
       const date_and_time = result;
 
-      const weather_icon = getWeatherIcon(data.weather[0].main);
+      const weather_icon = getWeatherIcon(data.weather[0].main, date_and_time);
 
       const weather_data = {
         city_name: data.name,
@@ -126,51 +126,66 @@ const getLocalDate = async (longitude, latitude) => {
 };
 
 const toggleWeatherPage = weather_data => {
-  if (weather_data) formatWeatherData(weather_data, changeBackgroundColor);
+  if (weather_data) formatWeatherData(weather_data);
 
   input_page.classList.toggle("is-hidden");
   result_page.classList.toggle("is-hidden");
 };
 
-const getWeatherIcon = weather_type => {
-  //  Get icon corresponding to weather type
+const getWeatherIcon = (weather_type, date_and_time) => {
+  // If it is currently night in chosen city (between 8pm and 6am), show moon icon
+  const current_hour = isNight(date_and_time);
+
+  if (current_hour > 19 || current_hour < 07) {
+    return "img/night.png";
+  }
+
+  //  Else, set icon corresponding to weather type
   switch (weather_type) {
     case "Thunderstorm":
-      weather_icon = "img/storm.png";
+      return "img/storm.png";
       break;
 
     case "Drizzle":
-      weather_icon = "img/light-rain.png";
+      return "img/light-rain.png";
       break;
 
     case "Rain":
-      weather_icon = "img/heavy-rain.png";
+      return "img/heavy-rain.png";
       break;
 
     case "Snow":
-      weather_icon = "img/snow.png";
+      return "img/snow.png";
       break;
 
     case "Clouds":
-      weather_icon = "img/light-cloud.png";
+      return "img/light-cloud.png";
       break;
 
     // Heavy clouds
     //TODO
 
     case "Clear":
-      weather_icon = "img/sunny.png";
+      return "img/sunny.png";
       break;
 
     // Default for fog, atmosphere etc
     default:
-      weather_icon = "img/light-cloud.png";
+      return "img/light-cloud.png";
   }
-
-  return weather_icon;
 };
 
-const formatWeatherData = (weather_data, callback) => {
+const isNight = date_and_time => {
+  // Get last 5 characters from string, which will be the time in 24h format
+  const time = date_and_time.substring(
+    date_and_time.length - 5,
+    date_and_time.length - 3
+  );
+
+  return Number(time);
+};
+
+const formatWeatherData = weather_data => {
   result_container.innerHTML = `
   <div class="temp-and-description">
     <div class="temp-icon-container">
@@ -181,8 +196,6 @@ const formatWeatherData = (weather_data, callback) => {
   <p class="city-name">${weather_data.city_name}, ${weather_data.country}</p>
   <p class="date">${weather_data.date_and_time}</p>
 `;
-
-  callback(weather_data.date_and_time);
 };
 
 const changeBackgroundColor = date => {
