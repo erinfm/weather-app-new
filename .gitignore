@@ -121,4 +121,7 @@ $RECYCLE.BIN/
 *.msp
 
 # Windows shortcuts
-*.lnkmain.js
+*.lnk
+
+#
+main.js
