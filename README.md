@@ -12,7 +12,16 @@ To use, you will need to use your own API keys for the OpenWeatherMap API and Ti
 
 ```
 const config = {
-  OWM_API_KEY: " **your OpenWeatherMap API Key** ",
-  TIMEZONEDB_API_KEY: " **your TimeZoneDB API Key** ",
+  OWM_API_KEY: " *your OpenWeatherMap API Key* ",
+  TIMEZONEDB_API_KEY: " *your TimeZoneDB API Key* ",
+}
+```
+
+for example:
+
+```
+const config = {
+  OWM_API_KEY: "AAAAAAA111111",
+  TIMEZONEDB_API_KEY: "BBBBB22222222",
 }
 ```
